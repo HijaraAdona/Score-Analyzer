@@ -1,0 +1,16 @@
+import java.util.Arrays;
+
+public class AnalysisUtil {
+    public static void analyzeScores(double[] scores, double total) {
+        Arrays.sort(scores);
+
+        double min = scores[0];
+        double max = scores[scores.length - 1];
+        double average = total / scores.length;
+
+        System.out.println("Minimum Score: " + min);
+        System.out.println("Maximum Score: " + max);
+        System.out.println("Total Scores: " + total);
+        System.out.println("Average Score: " + average);
+    }
+}
