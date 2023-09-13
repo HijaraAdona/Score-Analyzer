@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class ScoreAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of scores: ");
+        int n = scanner.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Please enter a valid number of scores.");
+            scanner.close();
+            return;
+        }
+
+        double[] scores = new double[n];
+        double total = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter score #" + (i + 1) + ": ");
+            if (scanner.hasNextDouble()) {
+                scores[i] = scanner.nextDouble();
+                total += scores[i];
+            } else {
+                System.out.println("Invalid input. Please enter a valid score.");
+                scanner.close();
+                return;
+            }
+        }
+
+        AnalysisUtil.analyzeScores(scores, total);
+
+        scanner.close();
+    }
+}
