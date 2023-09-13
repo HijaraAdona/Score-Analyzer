@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class ScoreAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of scores: ");
+        int n = scanner.nextInt();
+
+        double[] scores = new double[n];
+        double total = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter score #" + (i + 1) + ": ");
+            scores[i] = scanner.nextDouble();
+            total += scores[i];
+        }
+
+        BubbleSort.sort(scores);
+
+        double min = scores[0];
+        double max = scores[n - 1];
+        double average = total / n;
+
+        System.out.println("Minimum Score: " + min);
+        System.out.println("Maximum Score: " + max);
+        System.out.println("Total Scores: " + total);
+        System.out.println("Average Score: " + average);
+
+        scanner.close();
+    }
+}
+
+
+public class BubbleSort {
+    public static void sort(double[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j + 1]
+                    double temp = arr[j];
+                    arr[j] = arr[j + 1]; 
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+
